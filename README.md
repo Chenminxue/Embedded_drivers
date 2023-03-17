@@ -7,7 +7,8 @@
 	4. Write the register struct for peripherals such as 
 	'''type struct{...} GPIO_RegDef_t; 
 	 	type struct {...} RCC_RegDef_t;
-		etc'''
+		etc
+	'''
 	5. Use the register struct to write the specific group of register for specific peripherals such as #define GPIOA	((GPIO_RegDef_t*) 		GPIOA_BASEADDR), #define RCC	((RCC_RegDef_t*) RCC_BASEADDR)
 	6. Write clock enable for each peripheral by using the enable register in RCC such as #define GPIOA_PCLK_EN()	(RCC->AHB1ENR |= (1 		<< 0)), #define I2C1_PLCK_EN()	(RCC->APB1ENR |= (1 << 21))
 	7. Write clock disable such as GPIOA_PLCK_DI()	(RCC->AHB1ENR &= ~(1 << 0))
