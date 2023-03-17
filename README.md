@@ -11,7 +11,7 @@
 #define SRAM 			SRAM1_BASEADDR
 ```
 
-3. Find the BASE ADDRESS for APBx and AHBx buses.
+2. Find the BASE ADDRESS for APBx and AHBx buses.
 
 ```
 #define PERIPH_BASEADDR 	0x40000000U
@@ -21,7 +21,7 @@
 #define AHB2PERIPH_BASEADDR	0x50000000U
 ```
 
-5. Base on the bus address write the BASE ADDRESS for peripherals such as GPIOx, I2Cx, SPIx, RCC, EXTI, etc...
+3. Base on the bus address write the BASE ADDRESS for peripherals such as GPIOx, I2Cx, SPIx, RCC, EXTI, etc...
 
 ```
 #define GPIOA_BASEADDR          (AHB1PERIPH_BASEADDR + 0x0000)
@@ -45,7 +45,7 @@
 	.
 ```
 
-6. Write the register struct for peripherals such as GPIO and RCC
+4. Write the register struct for peripherals such as GPIO and RCC
 	
 ```
 typedef struct
@@ -95,7 +95,7 @@ typedef struct
 	.
 ```
 
-7. Write clock enable for each peripheral by using the enable register in RCC such as 
+6. Write clock enable for each peripheral by using the enable register in RCC such as 
 
 ```
 #define GPIOA_PCLK_EN()    	(RCC->AHB1ENR |= (1 << 0))
@@ -107,7 +107,7 @@ typedef struct
 	.
 ```
 
-9. Write clock disable such as 
+7. Write clock disable such as 
 
 ```
 GPIOA_PLCK_DI()	(RCC->AHB1ENR &= ~(1 << 0))
